@@ -1,0 +1,1 @@
+This directory is for our SA group project. It's intend to be a workplace for multiple developer groups, in which each group has its own folder and can only access it. Every user need to follow a strict passwd policy and ACL management. Also there is an aduitor who can examine all files. 
