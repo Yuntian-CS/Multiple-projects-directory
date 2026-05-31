@@ -1,0 +1,5 @@
+You actually need read, write and execute permissions on the directory, not on the file itself since the operation is done considering the permissions effects of directories.
+
+A good documentation can be found on this link, which mentions the below in the section Special Considerations on Directories:
+
+To delete a file requires both write (to modify the directory itself) and execute (to stat() the file's inode) on a directory.  Note a user needs no permissions on a file nor be the file's owner to delete it!
