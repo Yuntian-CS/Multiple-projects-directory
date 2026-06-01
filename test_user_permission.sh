@@ -28,10 +28,10 @@ while read group gid members; do
                 echo "Please enter password for $user"
 
                 # Use -S flag or redirect password prompt to /dev/tty
-                su "$user" -c 'ls /Multiple-projects-directory/DevA >> /dev/null && echo "✅ can read DevA" || echo "❌ cannot access DevA"' </dev/tty
+                su "$user" -c 'ls /Multiple-projects-directory/DevA >> /dev/null && echo "✅ '"$user"' can read DevA" || echo "❌ cannot access DevA"' </dev/tty
 
                 echo "Please enter password for $user"
-                su "$user" -c 'touch /Multiple-projects-directory/DevA/devA_test.txt && echo "✅ can write to DevA" || echo "❌ cannot write to DevA"' </dev/tty
+                su "$user" -c 'touch /Multiple-projects-directory/DevA/devA_'"$user"'_test.txt && echo "✅ '"$user"' can write to DevA" || echo "❌ cannot write to DevA"' </dev/tty
 		elif [[ "$user" == B* ]]; then
                 # Test Dev-Group-B users write permissions on DevB folder
 
@@ -41,7 +41,7 @@ while read group gid members; do
                 su "$user" -c 'ls /Multiple-projects-directory/DevB >> /dev/null && echo "✅ '"$user"' can read and execute DevB directory" || echo "❌ '"$user"' cannot access DevB directory"' </dev/tty
 
                 echo "Please enter password for $user"
-                su "$user" -c 'touch /Multiple-projects-directory/DevB/devB_test.txt && echo "✅ '"$user"' can write to DevB directory" || echo "❌ '"$user"' cannot write to DevB directory"' </dev/tty
+                su "$user" -c 'touch /Multiple-projects-directory/DevB/devB_'"$user"'_test.txt && echo "✅ '"$user"' can write to DevB directory" || echo "❌ '"$user"' cannot write to DevB directory"' </dev/tty
 
             else
                 # Optional: handle users that don't match A* or B*
